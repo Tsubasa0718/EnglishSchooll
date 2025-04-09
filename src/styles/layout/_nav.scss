@@ -1,0 +1,40 @@
+@use"../function/_mixin.scss" as *;
+.nav{
+    position: fixed;
+    top: 0;
+    left: 0%;
+    z-index: 3;
+    width: 100%;
+    height: 100vh;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s;
+
+    &__logo{
+        margin: px-to-rem(25px) 0 0 px-clamp(25,50,375,2000);
+    }
+   &__list{
+    margin-top: px-to-rem(28.72px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+   }
+   &__item:not(:first-of-type){
+    margin-top: px-to-rem(20px);
+   }
+   &__link{
+    font-weight: bold;
+   }
+   &__btn{
+    text-align: center;
+    margin-top: px-to-rem(40px);
+   }
+}
+
+// 状態変化
+
+.nav.is-active{
+    visibility: visible;
+    opacity: 1;
+}

@@ -1,0 +1,108 @@
+@use"../function/_mixin.scss" as *;
+
+.voice{
+    padding: px-clamp(80,110,375,2000) 0 px-clamp(80,120,375,2000) 0;
+&__body{
+    margin-top: px-clamp(40,80,375,2000);
+}
+&__wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: px-to-rem(40px);
+}
+&__item{
+  display: flex;
+  flex-direction: column-reverse;
+  transform: scale(0);
+  opacity: 0;
+  transition: 1s;
+  @include responsive("tablet"){
+    flex-direction: row;
+    align-items: center;
+}
+  &:nth-child(2){
+    @include responsive("tablet"){
+        flex-direction: row-reverse;
+    }
+  }
+}
+
+// 状態変化
+&__item.balloon{
+  transform: scale(1);
+  opacity: 1;
+}
+
+&__image{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+&__caption{
+    margin-top: px-to-rem(10px);
+    font-size: px-to-rem(12px);
+}
+
+&__text-body{
+  position: relative;
+  line-height: 1.5;
+  margin-bottom: px-to-rem(30px);
+  padding: px-to-rem(20px);
+  border-radius: px-to-rem(15px);
+  @include responsive("tablet"){
+    margin-left: px-to-rem(25px);
+  }
+  &:nth-child(2){
+    @include responsive("tablet"){
+        margin-right: px-to-rem(25px);
+      }
+  }
+}
+&__text-triangle{
+    position: absolute;
+    left: 50%;
+    bottom: px-to-rem(-10px);
+    transform: translateX(-50%);
+    // 配置
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-right: px-to-rem(15px) solid transparent;
+    border-left: px-to-rem(15px) solid transparent;
+    border-top: px-to-rem(15px) solid var(--bubble-color);
+    border-bottom: 0;
+    @include responsive("tablet"){
+     top: 50%;
+     left: px-to-rem(-10px);
+     bottom: unset;
+     transform: translateY(-50%);
+     transform: translateX(0px);
+    //  スタイルの打ち消し
+    border-right: unset;
+    border-left: unset;
+    border-top: unset;
+    border-bottom: unset;
+    // 新しいスタイル
+    border-top: px-to-rem(15px) solid transparent;
+    border-bottom: px-to-rem(15px) solid transparent;
+    border-right: px-to-rem(15px) solid var(--bubble-color);
+    border-left: 0;
+    }
+}
+// 二番目の要素
+&__item:nth-child(2){
+   .voice__text-body{
+    .voice__text-triangle{
+      @include responsive("tablet"){
+        left: auto;
+        right: px-to-rem(-10px);
+        border-top: px-to-rem(15px) solid transparent;
+        border-bottom: px-to-rem(15px) solid transparent;
+        border-left: px-to-rem(15px) solid var(--bubble-color);
+        border-right: 0;
+      }
+    }
+   }
+}
+}

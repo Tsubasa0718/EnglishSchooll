@@ -1,0 +1,27 @@
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/styles/style.scss ***!
+  \**************************************************************************************************************************************************************************************/
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: red;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+@media screen and (max-width: 769px) {
+  body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: blue;
+  }
+  h1 {
+    font-size: 20px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map*/

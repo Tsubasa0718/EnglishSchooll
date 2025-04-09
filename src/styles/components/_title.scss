@@ -1,0 +1,17 @@
+@use"../function/_mixin.scss" as *;
+
+.section-title{
+    position: relative;
+    font-size: px-clamp(28,36,375,2000);
+    font-weight: bold;
+    letter-spacing: .1em;
+    text-align: center;
+ &::after{
+    content: "";
+    position: absolute;
+    bottom: px-to-rem(-20px);
+    left: calc(50% - 40px);
+    width: px-to-rem(80px);
+    height: px-to-rem(3px);
+ }
+}

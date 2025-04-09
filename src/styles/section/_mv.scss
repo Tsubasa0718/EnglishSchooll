@@ -1,0 +1,89 @@
+@use"../function/_mixin.scss" as *;
+
+.mv{
+   position: relative;
+   margin: px-to-rem(10px) 0 px-clamp(80,120,375,2000) 0;
+   height: px-clamp(490,720,375,2000);
+
+   &__fade figure{
+      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      opacity: 0;
+      animation: fade 15s infinite;
+      @include responsive("tablet"){
+         left: auto;
+         right: 0;
+         width: 75%;
+      }
+   // 白い外枠
+      &::after{
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      box-shadow: inset 0px 0px px-to-rem(20px) px-to-rem(20px) var(--base-color);
+     }
+   }
+
+    &__fade figure:nth-child(1) {
+      animation-delay: 0s;
+    }
+    &__fade figure:nth-child(2) {
+      animation-delay: 5s;
+    }
+   &__fade figure:nth-child(3) {
+      animation-delay: 10s;
+    }
+
+    &__fade figure img {
+      width: 100%;
+      height: px-clamp(300,720,375,2000);
+      object-fit: cover;
+    }
+
+    &__desc{
+   position: absolute;
+   top: px-clamp(310,500,375,992);
+   left: px-to-rem(15px);
+   z-index: 2;
+  @include responsive("tablet"){
+   top: px-to-rem(280px);
+   left: px-to-rem(140px);
+  }
+}
+&__title{
+   font-size: px-clamp(28,46,375,2000);
+   font-weight: bold;
+   line-height: 1.6;
+   letter-spacing: .1em;
+}
+&__btn{
+   margin-top: px-to-rem(10px);
+}
+}
+
+// animation
+
+@keyframes fade {
+   0% {
+     opacity: 0;
+   }
+   15% {
+     opacity: 1;
+   }
+   30% {
+     opacity: 1;
+   }
+   45% {
+     opacity: 0;
+   }
+   100% {
+     opacity: 0;
+   }
+ }

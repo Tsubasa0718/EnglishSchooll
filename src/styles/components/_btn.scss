@@ -1,0 +1,63 @@
+@use "../function/_mixin.scss" as *;
+
+// base
+.btn--nav{
+ position: relative;
+ display: inline-block;
+ text-align: center;
+ padding: px-to-rem(15px) 0;
+ width: px-to-rem(250px);
+ font-weight: bold;
+ letter-spacing: .1em;
+}
+
+.btn{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  padding: px-to-rem(15px) 0;
+  font-size: px-to-rem(24px);
+  width: px-clamp(343,464,375,2000);
+  border-radius: px-to-rem(10px);
+  letter-spacing: .1em;
+}
+
+.btn--lg{
+  @extend .btn;
+  width:100%;
+  font-size: px-clamp(24,28,375,2000);
+  border-radius: px-to-rem(40px);
+}
+
+// くの字
+.btn-arrow{
+ position: relative;
+ position: absolute;
+ top: 50%;
+ right: px-to-rem(17px);
+ transform: translateY(-50%);
+ display: inline-block;
+ width: px-to-rem(11.31px);
+ height: px-to-rem(22.63px);
+ &::before,
+ &::after{
+  content: "";
+  position: absolute;
+  top: calc(50% - 1.5px);
+  right: 0;
+  width: px-to-rem(15px);
+  height: px-to-rem(3px);
+  border-radius: px-to-rem(9999px);
+  transform-origin: calc(100% - 1.5px) 50%;
+ }
+}
+
+.btn-arrow::before {
+    transform: rotate(45deg);
+  }
+
+.btn-arrow::after {
+    transform: rotate(-45deg);
+  }
+
+

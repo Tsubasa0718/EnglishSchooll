@@ -1,0 +1,30 @@
+<header class="header">
+    <!-- logo -->
+ <h1 class="header__logo">
+    <a href="#">
+        <img width="100" height="56" src="../img/logo-r.png" alt="BBB英会話スクール">
+    </a>
+ </h1>
+ <!-- nav -->
+  <nav class="nav theme-nav" id="is-nav" aria-hidden="true">
+   <div class="nav__logo">
+      <a href="#">
+         <img width="100" height="56" src="../img/logo-w.png" alt="BBB英会話スクール">
+      </a>
+   </div>
+    <ul class="nav__list">
+        <% navData.forEach(item=>{ %>
+          <li class="nav__item"><a class="nav__link" href="<%= item.link %>" tabindex="0"><%= item.title %></a></li>
+       <% }) %>
+    </ul>
+    <div class="nav__btn">
+      <a class="btn--nav theme-nav-btn" href="#">無料体験に申し込む</a>
+    </div>
+  </nav>
+<!-- hamburger-menu -->
+  <button id="hamburger-menu" class="hamburger-menu theme-hamburger" aria-controls="is-nav" aria-expanded="false">
+     <span class="hamburger-menu__line"></span>
+     <span class="hamburger-menu__line"></span>
+     <span class="hamburger-menu__line"></span>
+  </button>
+</header>

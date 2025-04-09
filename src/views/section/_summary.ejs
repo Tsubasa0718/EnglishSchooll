@@ -1,0 +1,22 @@
+<section id="summary" class="summary">
+    <h3 class="section-title theme-section-title">スクールの概要</h3>
+   <div class="container">
+     <div class="summary__body">
+        <div class="summary__wrapper">
+            <% reasonData.forEach(item=>{ %>
+              <div class="summary__box theme-summary__bg">
+                <h4 class="summary__title"><%= item.title %></h4>
+                <span class="summary__subtitle"><%= item.subtitle %></span>
+                <div class="summary__text-body">
+                    <p class="summary__text">
+                        <%= item.text %>
+                    </p>
+                </div>
+              </div>
+           <% }) %>
+        </div>
+     </div>
+   </div>
+   <!-- 背景アニメーション -->
+   <%- include('../parts/_bg.ejs') %>
+</section>

@@ -1,0 +1,36 @@
+@use"../function/_mixin.scss" as *;
+
+.bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: px-to-rem(1200px);
+    z-index: -1; /* 背面に配置 */
+    overflow: hidden;
+  @include responsive("tablet"){
+    height: px-to-rem(859px);
+  }
+  &__circle{
+    position: absolute;
+    width: px-to-rem(300px);
+    height: px-to-rem(300px);
+    border-radius: 50%;
+    animation: fallAnimation 7s linear infinite;
+  }
+  /* 前列（間隔を開ける） */
+  &__circle:nth-child(1) { top: -18.75rem; left: calc(85% + 6.25rem); animation-delay: 0s; }
+  &__circle:nth-child(2) { top: -18.75rem; left: calc(85% - 37.5rem + 6.25rem); animation-delay: 0.5s; }
+  &__circle:nth-child(3) { top: -18.75rem; left: calc(85% - 75rem + 6.25rem); animation-delay: 1s; }
+
+/* 後列（前列より少し上に配置） */
+&__circle:nth-child(4) { top: -31.25rem; left: calc(85% - 25rem + 6.25rem); animation-delay: 1.5s; }
+&__circle:nth-child(5) { top: -31.25rem; left: calc(85% - 62.5rem + 6.25rem); animation-delay: 2s; }
+&__circle:nth-child(6) { top: -31.25rem; left: calc(85% - 100rem + 6.25rem); animation-delay: 2.5s; }
+
+}
+/* アニメーション */
+@keyframes fallAnimation {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-31.25rem, 180vh); } /* 滑らかに視界外へ */
+}

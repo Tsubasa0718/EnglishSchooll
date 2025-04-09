@@ -1,0 +1,7 @@
+@use"../function/_mixin.scss" as *;
+
+.header{
+     &__logo{
+      margin: px-to-rem(25px) 0 0 px-clamp(25,50,375,2000);
+    }
+}

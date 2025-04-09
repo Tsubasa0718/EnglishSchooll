@@ -1,0 +1,24 @@
+<section id="voice" class="voice">
+    <h3 class="section-title theme-section-title">受講生の声</h3>
+    <div class="container">
+        <div class="voice__body">
+            <div class="voice__wrapper">
+                <% voiceData.forEach(item => { %>
+                  <div class="voice__item inview-balloon">
+                    <figure class="voice__image">
+                        <img width="120" height="120" src="../img/<%= item.image %>" alt="<%= item.alt %>">
+                        <figcaption class="voice__caption">
+                            <%- item.caption.replace("\n", "<br>") %>
+                        </figcaption>
+
+                    </figure>
+                    <div class="voice__text-body theme-voice-text-bg">
+                        <p class="voice__text"><%= item.comment %></p>
+                        <span class="voice__text-triangle theme-voice-text-triangle"></span>
+                    </div>
+                  </div>
+               <% }) %>
+            </div>
+        </div>
+    </div>
+</section>

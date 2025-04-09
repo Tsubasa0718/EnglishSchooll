@@ -1,0 +1,63 @@
+@use"../function/_mixin.scss" as *;
+.reason{
+&__body{
+  margin-top: px-clamp(40,80,375,2000);
+  padding: px-clamp(40,80,375,2000) 0;
+}
+&__wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: px-to-rem(40px);
+}
+&__desc{
+ width: 100%;
+ height: px-clamp(114,200,375,2000);
+ padding: px-clamp(19,70,375,2000) 0;
+ will-change: transform, opacity;
+ @include responsive("tablet"){
+    width: 50%;
+ }
+}
+&__desc-wrapper{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0 auto;
+}
+
+&__desc:nth-child(1){
+    border-top-right-radius: px-to-rem(20px);
+    border-bottom-right-radius: px-to-rem(20px);
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: 1s;
+}
+
+// 状態変化
+&__desc.slide-left:nth-child(1){
+ opacity: 1;
+ transform: none;
+}
+
+&__desc:nth-child(2){
+    border-top-left-radius: px-to-rem(20px);
+    border-bottom-left-radius: px-to-rem(20px);
+    transition:  1s;
+    opacity: 0;
+    transform: translateX(200%);
+}
+&__desc.slide-right:nth-child(2){
+  opacity: 1;
+  transform: translateX(0%);
+  @include responsive("tablet"){
+    transform: translateX(100%);
+  }
+}
+&__text-body{
+    margin-left: px-to-rem(30px);
+}
+&__title{
+  font-size: px-clamp(24,28,375,2000);
+  font-weight: bold;
+}
+}

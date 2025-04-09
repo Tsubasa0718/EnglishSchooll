@@ -1,0 +1,28 @@
+@use"../function/_mixin.scss" as *;
+
+.footer{
+  margin-top: px-clamp(80,120,375,2000);
+  &__wrapper{
+    padding-top: px-to-rem(60px);
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+   @include responsive("tablet"){
+    grid-template-columns: repeat(4, 1fr);
+   }
+  }
+  &__list-title{
+    font-size: px-clamp(15,16,375,2000);
+    font-weight: bold;
+  }
+  &__nav-list{
+    margin-top: px-to-rem(10px);
+  }
+  &__nav-item:not(:first-of-type){
+    margin-top: px-to-rem(3px);
+  }
+  &__nav-link{
+    font-size: px-to-rem(12px);
+  }
+}
